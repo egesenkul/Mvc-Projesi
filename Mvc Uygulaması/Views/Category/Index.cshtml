@@ -1,0 +1,29 @@
+﻿@using Mvc_Uygulaması.Models.EFEntities
+@model List<Categories>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Kategori Listesi</h2>
+<br/>
+<table class="table table-bordered">
+    <tr>
+        <th>SIRALAMA</th>
+        <th>KATEGORİ ADI</th>
+        <th>AÇIKLAMA</th>
+    </tr>
+    <tbody>
+        @{int rowCounter = 1;}
+        @foreach (Categories categorie in Model)
+        {
+            <tr>
+                <th>@rowCounter.ToString()</th>
+                <td>@categorie.CategoryName</td>
+                <td>@categorie.Description</td>
+            </tr>
+            rowCounter++;
+        }
+    </tbody>
+</table>
+

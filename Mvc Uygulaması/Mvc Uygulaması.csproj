@@ -128,11 +128,26 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\EFEntities\Categories.cs" />
+    <Compile Include="Models\EFEntities\CustomerDemographics.cs" />
+    <Compile Include="Models\EFEntities\Customers.cs" />
+    <Compile Include="Models\EFEntities\Employees.cs" />
     <Compile Include="Models\EFEntities\NorthwindModel.cs" />
+    <Compile Include="Models\EFEntities\Orders.cs" />
+    <Compile Include="Models\EFEntities\Order_Details.cs" />
+    <Compile Include="Models\EFEntities\Products.cs" />
+    <Compile Include="Models\EFEntities\Region.cs" />
+    <Compile Include="Models\EFEntities\Shippers.cs" />
+    <Compile Include="Models\EFEntities\Suppliers.cs" />
+    <Compile Include="Models\EFEntities\Territories.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -171,7 +186,10 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\Profil.cshtml" />
+    <Content Include="Views\Category\Index.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

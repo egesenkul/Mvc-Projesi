@@ -1,0 +1,34 @@
+﻿@using Mvc_Uygulaması.Models.EFEntities
+@model List<Customers>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Müşteri Listesi</h2>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>SIRALAMA</th>
+        <th>FİRMA ADI</th>
+        <th>YETKİLİ ADI</th>
+        <th>YETKİLİ ÜNVANI</th>
+        <th>TELEFON</th>
+        <th>İL / ÜLKE</th>
+    </tr>
+    <tbody>
+        @{ int rowCounter = 1;}
+        @foreach (Customers customer in Model)
+        {
+            <tr>
+                <th>@rowCounter</th>
+                <td>@customer.CompanyName</td>
+                <td>@customer.ContactName</td>
+                <td>@customer.ContactTitle</td>
+                <td>@customer.Phone</td>
+                <td>@(customer.City + " / "+customer.Country)</td>
+              </tr>
+            rowCounter++;
+        }
+    </tbody>
+</table>

@@ -1,0 +1,33 @@
+﻿@using Mvc_Uygulaması.Models.EFEntities
+@model List<Orders>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Sipariş Listesi</h2>
+<br/>
+<table class="table table-bordered">
+    <tr>
+        <th>SIRALAMA</th>
+        <th>SİPARİŞİ ALAN</th>
+        <th>SEVK ADI</th>
+        <th>SİPARİŞ TARİHİ</th>
+        <th>SEVK TARİHİ</th>
+    </tr>
+    <tbody>
+        @{ int rowCounter = 1;} 
+        @foreach(Orders order in Model)
+        {
+            <tr>
+                <th>@rowCounter</th>
+                <th>@(order.Employees.FirstName +" "+ order.Employees.LastName)</th>
+                <th>@order.ShipName</th>
+                <th>@order.OrderDate</th>
+                <th>@order.ShippedDate</th>
+            </tr>
+            rowCounter++;
+        }
+    </tbody>
+</table>
+
