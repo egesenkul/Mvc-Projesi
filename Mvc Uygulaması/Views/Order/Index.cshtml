@@ -6,22 +6,24 @@
 }
 
 <h2>Sipariş Listesi</h2>
-<br/>
+<br />
 <table class="table table-bordered">
-    <tr>
-        <th>SIRALAMA</th>
-        <th>SİPARİŞİ ALAN</th>
-        <th>SEVK ADI</th>
-        <th>SİPARİŞ TARİHİ</th>
-        <th>SEVK TARİHİ</th>
-    </tr>
+    <thead>
+        <tr>
+            <th>SIRALAMA</th>
+            <th>SİPARİŞİ ALAN</th>
+            <th>SEVK ADI</th>
+            <th>SİPARİŞ TARİHİ</th>
+            <th>SEVK TARİHİ</th>
+        </tr>
+    </thead>
     <tbody>
-        @{ int rowCounter = 1;} 
-        @foreach(Orders order in Model)
+        @{ int rowCounter = 1;}
+        @foreach (Orders order in Model)
         {
             <tr>
                 <th>@rowCounter</th>
-                <th>@(order.Employees.FirstName +" "+ order.Employees.LastName)</th>
+                <th>@(order.Employees.FirstName + " " + order.Employees.LastName)</th>
                 <th>@order.ShipName</th>
                 <th>@order.OrderDate</th>
                 <th>@order.ShippedDate</th>
@@ -31,3 +33,8 @@
     </tbody>
 </table>
 
+<style>
+    table tbody tr:hover {
+        background: red;
+    }
+</style>

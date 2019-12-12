@@ -6,28 +6,35 @@
 }
 
 <h2>Ürün Listesi</h2>
-<br/>
+<br />
 <table class="table table-bordered">
-    <tr>
-        <th>SIRALAMA</th>
-        <th>ÜRÜN ADI</th>
-        <th>ÜRÜN KATEGORİSİ</th>
-        <th>BİRİM FİYAT</th>
-        <th>STOK MİKTARI</th>
-    </tr>
+    <thead>
+        <tr>
+            <th>SIRALAMA</th>
+            <th>ÜRÜN ADI</th>
+            <th>ÜRÜN KATEGORİSİ</th>
+            <th>BİRİM FİYAT</th>
+            <th>STOK MİKTARI</th>
+        </tr>
+    </thead>
     <tbody>
         @{int rowCounter = 1;}
-        @foreach(Products product in Model)
+        @foreach (Products product in Model)
         {
-        <tr>
-            <th>@rowCounter.ToString()</th>
-            <td>@product.ProductName</td>
-            <td>@product.Categories.CategoryName</td>
-            <td>@product.UnitPrice</td>
-            <td>@product.UnitsInStock</td>
-        </tr>
+            <tr>
+                <th>@rowCounter.ToString()</th>
+                <td>@product.ProductName</td>
+                <td>@product.Categories.CategoryName</td>
+                <td>@product.UnitPrice</td>
+                <td>@product.UnitsInStock</td>
+            </tr>
             rowCounter++;
         }
     </tbody>
 </table>
 
+<style>
+    table tbody tr:hover {
+        background: red;
+    }
+</style>
