@@ -1,34 +1,51 @@
 ﻿@using Mvc_Uygulaması.Models.EFEntities
 @model List<Customers>
 @{
+    /**/
+
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Müşteri Listesi</h2>
 <br />
+<center>
+    @using (Html.BeginForm("Detail", "Customer", new { userId = -1, isUpdate = false }, FormMethod.Post))
+    {
+        <input class="btn btn-success" type="submit" value="Müşteri Ekle" />
+    }
+</center>
+<br />
 <table class="table table-bordered">
-    <tr>
-        <th>SIRALAMA</th>
-        <th>FİRMA ADI</th>
-        <th>YETKİLİ ADI</th>
-        <th>YETKİLİ ÜNVANI</th>
-        <th>TELEFON</th>
-        <th>İL / ÜLKE</th>
-    </tr>
+    <thead>
+        <tr>
+            <th>SIRALAMA</th>
+            <th>FİRMA ADI</th>
+            <th>YETKİLİ ADI</th>
+            <th>YETKİLİ ÜNVANI</th>
+            <th>TELEFON</th>
+            <th>İL / ÜLKE</th>
+        </tr>
+    </thead>
     <tbody>
         @{ int rowCounter = 1;}
         @foreach (Customers customer in Model)
         {
-            <tr>
+            <tr onclick="location.href ='@(Url.Action("Detail", "Customer", new { userId = customer.CustomerID , isUpdate = false}))'">
                 <th>@rowCounter</th>
                 <td>@customer.CompanyName</td>
                 <td>@customer.ContactName</td>
                 <td>@customer.ContactTitle</td>
                 <td>@customer.Phone</td>
-                <td>@(customer.City + " / "+customer.Country)</td>
-              </tr>
+                <td>@(customer.City + " / " + customer.Country)</td>
+            </tr>
             rowCounter++;
         }
     </tbody>
 </table>
+
+<style>
+    table tbody tr:hover {
+        background: red;
+    }
+</style>

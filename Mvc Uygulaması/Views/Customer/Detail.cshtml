@@ -1,0 +1,92 @@
+﻿@using Mvc_Uygulaması.Models.EFEntities
+@model Customers
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Müşteri Bilgileri</h2>
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success" role="alert">
+        @(ViewBag.Message)
+    </div>
+}
+@using (Html.BeginForm("Update", "Customer", new { userId = Model == null ? "-1" : Model.CustomerID, isUpdate = false }, FormMethod.Post))
+{
+    <table class="table table-bordered">
+        <tr hidden="hidden">
+            <th>Customer ID: </th>
+            <td>
+                @Html.TextBoxFor(model => model.CustomerID)
+            </td>
+        </tr>
+        <tr>
+            <th>ŞİRKET ADI: </th>
+            <td>
+                @Html.TextBoxFor(model => model.CompanyName)
+            </td>
+        </tr>
+        <tr>
+            <th>İLGİLİ ADI: </th>
+            <td>
+                @Html.TextBoxFor(model => model.ContactName)
+            </td>
+        </tr>
+        <tr>
+            <th>İLGİLİ ÜNVARNI: </th>
+            <td>
+                @Html.TextBoxFor(model => model.ContactTitle)
+            </td>
+        </tr>
+        <tr>
+            <th>ADRES: </th>
+            <td>
+                @Html.TextBoxFor(model => model.Address)
+            </td>
+        </tr>
+        <tr>
+            <th>ŞEHİR: </th>
+            <td>
+                @Html.TextBoxFor(model => model.City)
+            </td>
+        </tr>
+        <tr>
+            <th>BÖLGE: </th>
+            <td>
+                @Html.TextBoxFor(model => model.Region)
+            </td>
+        </tr>
+        <tr>
+            <th>POSTA KODU: </th>
+            <td>
+                @Html.TextBoxFor(model => model.PostalCode)
+            </td>
+        </tr>
+        <tr>
+            <th>ÜLKE: </th>
+            <td>
+                @Html.TextBoxFor(model => model.Country)
+            </td>
+        </tr>
+        <tr>
+            <th>TELEFON: </th>
+            <td>
+                @Html.TextBoxFor(model => model.Phone)
+            </td>
+        </tr>
+        <tr>
+            <th>FAX: </th>
+            <td>
+                @Html.TextBoxFor(model => model.Fax)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <center>
+                    <button class="btn btn-success">EKLE / GÜNCELLE</button>
+                </center>
+            </td>
+        </tr>
+    </table>
+}
